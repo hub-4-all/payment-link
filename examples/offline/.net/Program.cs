@@ -9,19 +9,20 @@ using ZXing.Common;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.PixelFormats;
+using Newtonsoft.Json;
 
 class Program
 {
     static void Main()
     {
-        string chavePrivadaPEM = System.IO.File.ReadAllText("../private.key");
-
+        string chavePrivadaPEM = System.IO.File.ReadAllText("../private.pem");
+        IList<string> products = new List<string>();
         var claims = new List<Claim>
         {
             new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64),
-            new Claim("subOrganizationUUID", "236a6054-3c4d-436b-8aa8-467f3b2e7160"),
-            new Claim("accountUUID", "954635a4-C68e-4ea5-B1b9-67c9f50fe67b"),
-            new Claim("paymentProducts", "[]"),
+            new Claim("subOrganizationUUID", "SUBORG_UUID"),
+            new Claim("accountUUID", "ACCOUNT_UUID"),
+            new Claim("paymentProducts", JsonConvert.SerializeObject(products), JsonClaimValueTypes.JsonArray),
             new Claim("uniqueIdentifier", "123456"),
             new Claim("description", "Pagamento de um exemplo da demo de 20-11"),
             new Claim("currency", "EUR"),
