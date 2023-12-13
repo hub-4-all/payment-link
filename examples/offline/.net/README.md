@@ -10,16 +10,17 @@ Modificar o arquivo index.js informando o caminho para a chave privada e os dado
 ```csharp
 ...
 
-string chavePrivadaPEM = System.IO.File.ReadAllText("../private.key");
+string chavePrivadaPEM = System.IO.File.ReadAllText("../private.pem");
+IList<string> products = new List<string>();
 
 var claims = new List<Claim>
 {
     new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64),
-    new Claim("subOrganizationUUID", "8dbcd7bf-68fd-40dd-8b9c-48e02e9d98e8"),
-    new Claim("accountUUID", "fd0dd460-8fe1-415f-98be-aa1ca8962ab4"),
-    new Claim("paymentProducts", ["mbway", "applepay"]),
+    new Claim("subOrganizationUUID", "SUBORG_UUID"),
+    new Claim("accountUUID", "ACCOUNT_UUID"),
+    new Claim("paymentProducts", JsonConvert.SerializeObject(products), JsonClaimValueTypes.JsonArray),
     new Claim("uniqueIdentifier", "123456"),
-    new Claim("description", "Pagamento de um exemplo da demo de 20-11 para PHC"),
+    new Claim("description", "Pagamento de um exemplo da demo de 20-11"),
     new Claim("currency", "EUR"),
     new Claim("amount", "25080", ClaimValueTypes.Integer32)
 };
