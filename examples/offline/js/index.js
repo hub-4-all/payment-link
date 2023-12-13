@@ -3,10 +3,10 @@ import jwt from "jsonwebtoken";
 import qrcode from "qrcode-terminal";
 
 const payload = {
-    "subOrganizationUUID": "8dbcd7bf-68fd-40dd-8b9c-48e02e9d98e8",
-    "accountUUID": "fd0dd460-8fe1-415f-98be-aa1ca8962ab4",
+    "subOrganizationUUID": "236a6054-3c4d-436b-8aa8-467f3b2e7160",
+    "accountUUID": "954635a4-C68e-4ea5-B1b9-67c9f50fe67b",
     "uniqueIdentifier": "123456",
-    "paymentProducts": ["mbway", "applepay"],
+    "paymentProducts": [],
     "description": "Pagamento de um exemplo da demo de 20-11",
     "currency": "EUR",
     "amount": 11137 // € 100,37

@@ -19,8 +19,9 @@ class Program
         var claims = new List<Claim>
         {
             new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64),
-            new Claim("subOrganizationUUID", "8dbcd7bf-68fd-40dd-8b9c-48e02e9d98e8"),
-            new Claim("accountUUID", "fd0dd460-8fe1-415f-98be-aa1ca8962ab4"),
+            new Claim("subOrganizationUUID", "236a6054-3c4d-436b-8aa8-467f3b2e7160"),
+            new Claim("accountUUID", "954635a4-C68e-4ea5-B1b9-67c9f50fe67b"),
+            new Claim("paymentProducts", "[]"),
             new Claim("uniqueIdentifier", "123456"),
             new Claim("description", "Pagamento de um exemplo da demo de 20-11"),
             new Claim("currency", "EUR"),
