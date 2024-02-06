@@ -9,7 +9,8 @@ const payload = {
     "paymentProducts": [],
     "description": "Pagamento de um exemplo da demo de 20-11",
     "currency": "EUR",
-    "amount": 11137 // € 100,37
+    "amount": 11137, // € 100,37
+    "referenceExpiration": "2024-02-15T03:00:00.000Z"
 };
 
 const privateKEY  = readFileSync('../private.key', 'utf8');
